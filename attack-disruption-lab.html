@@ -111,6 +111,7 @@
   }
   .shot .shot-label{font-family:var(--font-mono); font-size:12px; color:var(--muted); letter-spacing:0.02em;}
   .shot .shot-cap{font-size:13px; color:var(--muted-2); margin-top:4px;}
+  .shot img{width:100%; max-height:620px; object-fit:contain; margin:0 auto 12px; border-radius:4px;}
 
   .callout{
     border-radius:8px; padding:16px 20px; margin:20px 0; font-size:14.5px;
@@ -209,12 +210,12 @@
     <li>Planned to chain the dump with an Atomic Red Team lateral-movement test, to simulate more than one stage of an attack rather than a single isolated action.</li>
   </ul>
   <div class="shot">
-    <div class="shot-label">[ screenshot placeholder ]</div>
-    <div class="shot-cap">VM onboarding confirmation in the Defender portal</div>
+    <img src="attack-disruption-assets/01-defender-onboarding.png" alt="Microsoft Defender for Endpoint onboarding script completed successfully on the test VM" loading="lazy">
+    <div class="shot-cap">Microsoft Defender for Endpoint onboarding completed on the target VM</div>
   </div>
   <div class="shot">
-    <div class="shot-label">[ screenshot placeholder ]</div>
-    <div class="shot-cap">Procdump downloaded on the target VM</div>
+    <img src="attack-disruption-assets/02-procdump-download.png" alt="Microsoft Sysinternals ProcDump download page" loading="lazy">
+    <div class="shot-cap">Sysinternals ProcDump downloaded for the credential-dumping simulation</div>
   </div>
 
   <h2><span class="step-no">03</span> Running the simulation</h2>
@@ -235,12 +236,16 @@
   </div>
 
   <div class="shot">
-    <div class="shot-label">[ screenshot placeholder ]</div>
-    <div class="shot-cap">Real-time protection disabled, procdump execution attempt</div>
+    <img src="attack-disruption-assets/03-procdump-blocked.png" alt="Microsoft Defender detected and blocked the first ProcDump attempt" loading="lazy">
+    <div class="shot-cap">The first ProcDump attempt was blocked by Defender</div>
   </div>
   <div class="shot">
-    <div class="shot-label">[ screenshot placeholder ]</div>
-    <div class="shot-cap">"Access is denied" message on the LSASS dump attempt</div>
+    <img src="attack-disruption-assets/04-realtime-protection-disabled.png" alt="Windows Security showing real-time protection disabled for the controlled lab test" loading="lazy">
+    <div class="shot-cap">Real-time protection disabled for the controlled lab test</div>
+  </div>
+  <div class="shot">
+    <img src="attack-disruption-assets/05-lsass-access-denied.png" alt="ProcDump LSASS memory dump attempt returned access denied" loading="lazy">
+    <div class="shot-cap">The LSASS dump attempt still returned &quot;Access is denied&quot;</div>
   </div>
 
   <h2><span class="step-no">04</span> Detection & automated response</h2>
@@ -255,12 +260,16 @@
     flagging isolated per-machine events.
   </p>
   <div class="shot">
-    <div class="shot-label">[ screenshot placeholder ]</div>
-    <div class="shot-cap">Incident tagged with Attack Disruption in the incident queue</div>
+    <img src="attack-disruption-assets/06-attack-disruption-incident.png" alt="Microsoft Defender incident tagged with Attack Disruption and showing ProcDump evidence" loading="lazy">
+    <div class="shot-cap">Defender created an Attack Disruption incident with ProcDump evidence</div>
   </div>
   <div class="shot">
-    <div class="shot-label">[ screenshot placeholder ]</div>
-    <div class="shot-cap">Correlated incident view, showing both attempts merged together</div>
+    <img src="attack-disruption-assets/07-correlated-incident-graph.png" alt="Defender incident graph correlating activity across two devices and user accounts" loading="lazy">
+    <div class="shot-cap">Incident graph showing activity correlated across devices and identities</div>
+  </div>
+  <div class="shot">
+    <img src="attack-disruption-assets/08-correlated-alerts.png" alt="Defender incident alert list showing Attack Disruption and related alerts" loading="lazy">
+    <div class="shot-cap">Related alerts grouped into the same incident</div>
   </div>
 
   <p>
@@ -273,16 +282,16 @@
     <li>Suspended the associated user account in Entra ID.</li>
   </ul>
   <div class="shot">
-    <div class="shot-label">[ screenshot placeholder ]</div>
-    <div class="shot-cap">Actions performed, viewed from the user's activity timeline</div>
+    <img src="attack-disruption-assets/09-process-memory-dump.png" alt="Defender attack story showing the process memory dump detection timeline" loading="lazy">
+    <div class="shot-cap">Attack story showing the process-memory-dump detection timeline</div>
   </div>
   <div class="shot">
-    <div class="shot-label">[ screenshot placeholder ]</div>
-    <div class="shot-cap">RDP session termination event</div>
+    <img src="attack-disruption-assets/10-rdp-blocked.png" alt="Defender activity showing an attempted RDP session blocked by Attack Disruption" loading="lazy">
+    <div class="shot-cap">Attack Disruption blocked the attempted RDP lateral-movement session</div>
   </div>
   <div class="shot">
-    <div class="shot-label">[ screenshot placeholder ]</div>
-    <div class="shot-cap">Device and user shown as contained in the Action Center</div>
+    <img src="attack-disruption-assets/11-automated-containment.png" alt="Defender Action Center showing automated user-containment actions and completion status" loading="lazy">
+    <div class="shot-cap">Action Center showing automated containment actions and their status</div>
   </div>
   <p>
     The <strong>Action Center</strong> held the full audit trail of both automated actions —
@@ -319,10 +328,10 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       Back to portfolio
     </a>
-    <a href="vm-deletion-lab.html">
+    <!-- <a href="vm-deletion-lab.html">
       Next case study: VM Deletion Lab
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
+    </a> -->
   </div>
 </footer>
 
